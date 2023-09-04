@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { User } from '../../+state/user.reducer';
 
 @Component({
   selector: 'app-login-form',
@@ -15,9 +16,14 @@ export class LoginFormComponent implements OnInit {
     password: FormControl<string>;
   }>;
 
+  @Output() logon = new EventEmitter<Partial<User>>();
   ngOnInit() {
     if (this.parentForm === undefined) {
       throw Error('Missing required Input: parentForm!');
     }
+  }
+
+  onLogon(): void {
+    this.logon.emit(this.parentForm.value);
   }
 }

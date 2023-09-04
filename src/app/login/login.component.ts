@@ -6,6 +6,8 @@ import { UserListComponent } from './user-list/user-list.component';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../+state/user.reducer';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { selectRegistered } from '../+state/user.selectors';
 
 @Component({
   selector: 'app-login',
@@ -24,13 +26,20 @@ export default class LoginComponent {
   //could be in store as well
   error$ = new BehaviorSubject<string | null>(null);
 
+  userList$ = this.store.select(selectRegistered);
+
   form = new FormGroup({
     userId: new FormControl('', { nonNullable: true }),
     password: new FormControl('', { nonNullable: true }),
   });
 
+  constructor(private store: Store) {}
+
   onUserSelected(user: User): void {
-    // patch the form
     this.form.patchValue({ userId: user.userId });
+  }
+
+  onLogon(user: Partial<User>): void {
+    // try to log in
   }
 }

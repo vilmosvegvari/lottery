@@ -3,9 +3,9 @@
   <app-alert [error]="error$|async"></app-alert>
 
   <!--lista-->
-  <app-user-list (userSelected)="onUserSelected($event)"></app-user-list>
+  <app-user-list [userList]="(userList$|async) ?? []" (userSelected)="onUserSelected($event)"></app-user-list>
 
   <!--login-->
-  <app-login-form [parentForm]="form"></app-login-form>
+  <app-login-form [parentForm]="form" (logon)="onLogon($event)"></app-login-form>
 
 </div>

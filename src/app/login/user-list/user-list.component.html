@@ -2,7 +2,7 @@
   <h3 class="text-center">User list</h3>
   <ul class="p-0 text-center">
     <li *ngFor="let user of userList">
-      <button class="btn" (click)="userSelected.emit(user)">{{user.userName}}</button>
+      <button [title]="user.userId" class="btn" (click)="userSelected.emit(user)">{{user.userName}}</button>
     </li>
   </ul>
 </div>
