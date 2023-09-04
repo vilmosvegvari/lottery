@@ -25,6 +25,8 @@ export default class GameComponent implements OnInit {
   showResults = false;
   results: number[][] = [];
 
+  toggleScroll = false;
+
   boardArray = new FormArray<FormControl<number[]>>([]);
 
   ngOnInit(): void {
