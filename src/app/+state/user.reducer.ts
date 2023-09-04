@@ -9,6 +9,11 @@ export interface User {
   password: string; // would not be plaintext
 }
 
+export interface UserDTO {
+  userId: string;
+  password: string;
+}
+
 export interface State {
   registeredUsers: User[];
   activeUser: User | null;

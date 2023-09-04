@@ -4,11 +4,11 @@ import { AlertComponent } from './alert/alert.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { BehaviorSubject } from 'rxjs';
-import { User } from '../+state/user.reducer';
+import { User, UserDTO } from '../+state/user.reducer';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { selectRegistered } from '../+state/user.selectors';
 import { UserListService } from '../services/user-list.service';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -34,13 +34,24 @@ export default class LoginComponent {
     password: new FormControl('', { nonNullable: true }),
   });
 
-  constructor(private userListService: UserListService) {}
+  constructor(
+    private userListService: UserListService,
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
   onUserSelected(user: User): void {
     this.form.patchValue({ userId: user.userId });
   }
 
-  onLogon(user: Partial<User>): void {
-    // try to log in
+  onLogon(user: UserDTO): void {
+    this.authService.checkUser(user).subscribe(({ success }) => {
+      if (success) {
+        this.error$.next(null);
+        this.router.navigate(['game']);
+      } else {
+        this.error$.next('Log on not successful!');
+      }
+    });
   }
 }
