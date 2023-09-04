@@ -1,1 +1,11 @@
-<p>login works!</p>
+<div class="container p-3">
+  <!--error-->
+  <app-alert [error]="error$|async"></app-alert>
+
+  <!--lista-->
+  <app-user-list (userSelected)="onUserSelected($event)"></app-user-list>
+
+  <!--login-->
+  <app-login-form [parentForm]="form"></app-login-form>
+
+</div>

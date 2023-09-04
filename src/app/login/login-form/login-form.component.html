@@ -1,0 +1,12 @@
+<form [formGroup]="parentForm">
+  <div class="mb-3">
+    <label for="TEXTBOX_U" class="form-label">User ID</label>
+    <input id="TEXTBOX_U" class="form-control" type="text" formControlName="userId">
+  </div>
+
+  <div class="mb-3">
+    <label for="TEXTBOX_P" class="form-label">Password</label>
+    <input id="TEXTBOX_P" class="form-control" type="text" formControlName="password">
+  </div>
+  <button type="submit" class="btn btn-primary"> Log on</button>
+</form>
