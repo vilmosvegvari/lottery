@@ -36,7 +36,9 @@ export default class GameComponent implements OnInit {
   onPlayClick(): void {
     this.showResults = true;
     // if we would bind the form value it would show live results
-    this.results = this.boardArray.value;
+    const formVal = this.boardArray.value;
+    formVal.forEach((e) => e.sort((a, b) => a - b));
+    this.results = formVal;
   }
 
   onAddBoard() {

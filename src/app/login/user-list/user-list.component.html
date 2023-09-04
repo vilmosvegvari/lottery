@@ -1,5 +1,6 @@
-<div class="border rounded p-3">
+<div class="border rounded p-3 my-5">
   <h3 class="text-center">User list</h3>
+  <hr>
   <ul class="p-0 text-center">
     <li *ngFor="let user of userList">
       <button [title]="user.userId" class="btn" (click)="userSelected.emit(user)">{{user.userName}}</button>
