@@ -6,7 +6,7 @@
     </div>
 
     <div class="game-board">
-      <button *ngFor="let number of numbers" (click)="onNumberClick(number)">{{number}}</button>
+      <button [ngClass]="{'selected':selectedNumbers|selected:number}" *ngFor="let number of numbers" (click)="onNumberClick(number)">{{number}}</button>
     </div>
   </div>
 </div>

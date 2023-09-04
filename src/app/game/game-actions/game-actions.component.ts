@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,8 +11,9 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './game-actions.component.html',
-  styleUrls: ['./game-actions.component.scss']
+  styleUrls: ['./game-actions.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GameActionsComponent {
-
+  @Output() play = new EventEmitter<void>();
 }

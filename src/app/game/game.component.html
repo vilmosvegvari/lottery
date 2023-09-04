@@ -4,5 +4,5 @@
   <app-board *ngFor="let board of boards"></app-board>
 </div>
 
-<app-game-actions></app-game-actions>
-<app-game-result></app-game-result>
+<app-game-actions (play)="onPlayClick()"></app-game-actions>
+<app-game-result *ngIf="showResults"></app-game-result>

@@ -20,4 +20,10 @@ import { GameActionsComponent } from './game-actions/game-actions.component';
 })
 export default class GameComponent {
   boards = [1, 2, 3, 4];
+
+  showResults = false;
+
+  onPlayClick(): void {
+    this.showResults = true;
+  }
 }
