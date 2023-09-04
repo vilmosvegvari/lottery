@@ -1,4 +1,4 @@
-describe('template spec', () => {
+describe('can activate spec', () => {
   it('successfully loads', () => {
     cy.visit('http://localhost:4200');
   });
