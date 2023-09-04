@@ -1,0 +1,12 @@
+<div class="board-border">
+  <div class="board">
+    <div class="actions d-flex justify-content-between">
+      <button type="button" (click)="onRandomClick()">RND</button>
+      <button type="button" (click)="onDeleteClick()">CLR</button>
+    </div>
+
+    <div class="game-board">
+      <button *ngFor="let number of numbers" (click)="onNumberClick(number)">{{number}}</button>
+    </div>
+  </div>
+</div>

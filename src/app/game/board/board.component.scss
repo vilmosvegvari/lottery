@@ -1,0 +1,70 @@
+.board-border {
+  border: 2px dashed grey;
+  padding: 10px;
+  position: relative;
+}
+
+.board {
+  width: 300px;
+}
+
+.board::after {
+  // could use index as input
+  counter-increment: bg-counter;
+  content: counter(bg-counter);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  font-size: 200px;
+  width: 300px;
+  text-align: center;
+  opacity: 0.5;
+  color: grey;
+  background: none;
+  pointer-events: none;
+}
+
+.actions {
+  margin-bottom: 5px;
+  z-index: 1;
+  button {
+    color: red;
+    border: none;
+    background: none;
+    font-weight: bold;
+  }
+}
+
+.game-board {
+  display: flex;
+  flex: 1 1;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  button {
+    width: 33px;
+    color: red;
+    border: 2px solid red;
+    position: relative;
+  }
+}
+
+.selected::before{
+  content: 'x';
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  top:0;
+  color: black;
+  width: 30px;
+  height: 30px;
+  scale: 3;
+  text-align: center;
+  pointer-events: none;
+}
+
+button:hover{
+  background: darkgrey;
+}
