@@ -1,8 +1,8 @@
 <h1 class="text-center mb-5">Game page</h1>
 
 <div class="boards">
-  <app-board *ngFor="let board of boards"></app-board>
+  <app-board *ngFor="let boardControl of boardArray.controls" [formControl]="boardControl"></app-board>
 </div>
 
-<app-game-actions (play)="onPlayClick()"></app-game-actions>
-<app-game-result *ngIf="showResults"></app-game-result>
+<app-game-actions (addBoard)="onAddBoard()" (removeBoard)="onRemoveBoard()" (play)="onPlayClick()"></app-game-actions>
+<app-game-result  [results]="results" *ngIf="showResults"></app-game-result>

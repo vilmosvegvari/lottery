@@ -16,4 +16,6 @@ import { CommonModule } from '@angular/common';
 })
 export class GameActionsComponent {
   @Output() play = new EventEmitter<void>();
+  @Output() addBoard = new EventEmitter<void>();
+  @Output() removeBoard = new EventEmitter<void>();
 }
