@@ -15,7 +15,23 @@ export interface State {
 }
 
 export const initialState: State = {
-  registeredUsers: [],
+  registeredUsers: [
+    {
+      userId: 'test',
+      userName: 'testName',
+      password: 'test',
+    },
+    {
+      userId: 'hello',
+      userName: 'helloworld',
+      password: 'world',
+    },
+    {
+      userId: 'id',
+      userName: 'name',
+      password: 'pw',
+    },
+  ],
   activeUser: null,
 };
 
