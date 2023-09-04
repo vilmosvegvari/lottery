@@ -1,12 +1,10 @@
-<div class="container p-3">
-  <h1 class="text-center mb-5">Login page</h1>
-  <!--error-->
-  <app-alert [error]="error$|async"></app-alert>
+<h1 class="text-center mb-5">Login page</h1>
+<!--error-->
+<app-alert [error]="error$|async"></app-alert>
 
-  <!--lista-->
-  <app-user-list [userList]="(userList$|async) ?? []" (userSelected)="onUserSelected($event)"></app-user-list>
+<!--lista-->
+<app-user-list [userList]="(userList$|async) ?? []" (userSelected)="onUserSelected($event)"></app-user-list>
 
-  <!--login-->
-  <app-login-form [parentForm]="form" (logon)="onLogon($event)"></app-login-form>
+<!--login-->
+<app-login-form [parentForm]="form" (logon)="onLogon($event)"></app-login-form>
 
-</div>
